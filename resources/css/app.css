@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import 'tailwindcss';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -8,4 +9,27 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-montserrat: 'Montserrat';
+    --font-inter: 'inter';
+
+    --color-lightBackground: #F9FAFB;
+    --color-lightPrimary: #10B981;
+    --color-lightAccent: #059669;
+    --color-lightTextMain: #111827;
+    --color-lightTextSecondary: #6B7280;
+    --color-lightCardBackground: #FFFFFF;
+    --color-lightBorder: #E5E7EB;
+    --color-darkBackground: #020617;
+    --colot-darkPrimary: #34D399;
+    --color-darkAccent: #10B981;
+    --color-darkTextMain: #E5E7EB;
+    --color-darkTextSecondary: #9CA3AF;
+    --color-darkCardBackground: #020617;
+    --color-darkCardBorder: #1F2933;
+}
+
+.ball {
+    touch-action: none;
+    will-change: transform;
+    /* transition: transform 0.2s ease-in-out; */
 }
