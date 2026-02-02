@@ -7,7 +7,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>@yield('title')</title>
 </head>
-<body class="w-full min-h-screen relative bg-lightBackground font-inter flex flex-col items-center">
+<body class="w-full min-h-screen relative bg-lightBackground font-inter flex flex-col items-center pt-6">
     @yield('navbar')
 
     @yield('header')
