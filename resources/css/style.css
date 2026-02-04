@@ -1,0 +1,31 @@
+.ball {
+    touch-action: none;
+    will-change: transform;
+}
+
+div.control-menu.grow-shrink-anim {
+    transform-origin: top right;
+    transform: scale(0);
+}
+
+div.control-menu.grow-shrink-anim.open {
+    transform: scale(0);
+    animation: grow 0.4s ease-out forwards;
+}
+
+@keyframes grow {
+    to {
+        transform: scale(1);
+    }
+}
+
+div.control-menu.grow-shrink-anim.close {
+    transform: scale(1);
+    animation: shrink 0.4s ease-out forwards;
+}
+
+@keyframes shrink {
+    to {
+        transform: scale(0);
+    }
+}

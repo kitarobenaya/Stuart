@@ -2,12 +2,11 @@
     <a href="{{ route('dashboard.index') }}" class="p-3 @if(request()->routeIs('dashboard.index')) bg-lightAccent rounded-full text-white @else text-black @endif">
         <x-heroicon-s-home class="w-7 h-7" />
     </a>
-    <a href="{{ route('dashboard.form') }}" class="p-3 @if(request()->routeIs('dashboard.form')) bg-lightAccent rounded-full text-white @else text-black @endif">
+    <a href="{{ route('dashboard.form-study-day') }}" class="p-3 @if(request()->routeIs('dashboard.form-study-day')) bg-lightAccent rounded-full text-white @else text-black @endif">
         <x-heroicon-s-squares-plus class="w-7 h-7" />
     </a>
 
     <div class="toggle-theme bg-black p-3 flex justify-center items-center rounded-full z-50">
         <x-heroicon-s-moon class="w-7 h-7 cursor-pointer text-lightBackground" />
     </div>
-    {{-- @svg('bi-sun') --}}
 </nav>

@@ -27,9 +27,3 @@
     --color-darkCardBackground: #020617;
     --color-darkCardBorder: #1F2933;
 }
-
-.ball {
-    touch-action: none;
-    will-change: transform;
-    /* transition: transform 0.2s ease-in-out; */
-}
