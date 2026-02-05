@@ -25,3 +25,7 @@ Route::get('/edit-study-day/{studyDay}', [StudyDayController::class, 'edit'])
 // update the study day or schedule
 Route::patch('update-study-day/{studyDay}', [StudyDayController::class, 'update'])
 ->name('dashboard.update-study-day');
+
+// delete the study day or schedule
+Route::delete('/delete-study-day/{studyDay}', [StudyDayController::class, 'destroy'])
+->name('dashboard.delete-study-day');

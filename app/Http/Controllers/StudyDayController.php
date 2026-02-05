@@ -77,6 +77,8 @@ class StudyDayController extends Controller
      */
     public function destroy(StudyDay $studyDay)
     {
-        //
+        $studyDay->delete();
+        
+        return redirect("/");
     }
 }

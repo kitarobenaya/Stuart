@@ -31,7 +31,7 @@
             <p class="text-xs text-red-500">{{ $message }}</p>
         @enderror
 
-        <button type="submit" class="bg-lightPrimary w-[40%] h-8 rounded-xl font-semibold outline-2 outline-lightBorder">Add</button>
+        <button type="submit" class="bg-lightPrimary w-[40%] h-8 rounded-xl font-semibold outline-2 outline-lightBorder cursor-pointer">Add</button>
     </form>
     <script>
         const date = document.getElementById("date");

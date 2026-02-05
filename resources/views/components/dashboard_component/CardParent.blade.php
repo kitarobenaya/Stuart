@@ -20,7 +20,16 @@ use Carbon\Carbon;
             <x-heroicon-s-pencil-square class="w-8 h-8 bg-white rounded-full p-1 cursor-pointer" /> 
         </a>
 
-        <x-heroicon-s-trash class="w-8 h-8 text-red-500 bg-white rounded-full p-1 cursor-pointer" />
+        <form id="delete-study-day-form" action="{{ route('dashboard.delete-study-day', $id) }}" method="post">
+            @csrf
+            @method('DELETE')
+
+            <button type="submit">
+                <x-heroicon-s-trash class="w-8 h-8 text-red-500 bg-white rounded-full p-1 cursor-pointer" />
+            </button>
+
+        </form>
+
 
     </div>
 
