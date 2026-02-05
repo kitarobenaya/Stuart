@@ -3,6 +3,12 @@
     will-change: transform;
 }
 
+.navbar {
+    transition-property: width, bottom, border-radius;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
 div.control-menu.grow-shrink-anim {
     transform-origin: top right;
     transform: scale(0);
