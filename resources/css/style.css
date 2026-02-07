@@ -35,3 +35,14 @@ div.control-menu.grow-shrink-anim.close {
         transform: scale(0);
     }
 }
+
+div.sub-nav {
+    bottom: 0rem;
+    animation: slideIn 1s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+    to {
+        bottom: 4.5rem;
+    }
+}

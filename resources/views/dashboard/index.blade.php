@@ -10,10 +10,10 @@
 @endsection
 
 @section('content')
-    <div class="container-card w-[90%] h-auto flex flex-col items-center gap-y-4">
+    <div class="container-card w-[90%] h-auto grid grid-cols-1 gap-y-4">
         @if ($allSchedules->count())
             @foreach ($allSchedules as $schedule)
-                <x-dashboard_component.CardParent id="{{ $schedule->id }}" date="{{ $schedule->date }}" description="{{ $schedule->description }}" />
+                <x-dashboard_component.CardParent id="{{ $schedule->id }}" date="{{ $schedule->date }}"/>
             @endforeach
         @else
             <p class="mt-30">You dont have any schedule yet. <a href="{{ route('dashboard.form-study-day') }}" class="underline">Create One.</a></p>

@@ -2,7 +2,7 @@
 use Carbon\Carbon;
 ?>
 
-<div class="relative w-[95%] h-auto rounded-lg shadow-lg p-5 gap-y-2 flex flex-col border border-lightBorder">
+<div class="relative w-[95%] bg-white h-auto rounded-lg shadow-lg p-5 gap-y-2 flex flex-col border border-lightBorder mx-auto">
 
     <div class="size-fit absolute right-1 top-1 cursor-pointer z-2 flex" type="button">
         <x-uiw-setting class="w-4 h-4 z-1" />
@@ -20,26 +20,25 @@ use Carbon\Carbon;
             <x-heroicon-s-pencil-square class="w-8 h-8 bg-white rounded-full p-1 cursor-pointer" /> 
         </a>
 
-        <form id="delete-study-day-form" action="{{ route('dashboard.delete-study-day', $id) }}" method="post">
-            @csrf
-            @method('DELETE')
-
-            <button type="submit">
-                <x-heroicon-s-trash class="w-8 h-8 text-red-500 bg-white rounded-full p-1 cursor-pointer" />
-            </button>
-
-        </form>
-
+        <button type="submit" form="delete-study-day-form-{{ $id }}">
+            <x-heroicon-s-trash class="w-8 h-8 text-red-500 bg-white rounded-full p-1 cursor-pointer" />
+        </button>
 
     </div>
 
     <div class="w-full h-auto flex flex-col justify-center items-center p-4 rounded-lg border-2 border-lightBorder bg-white">
         <h1 class="text-lightTextSecondary w-full text-2xl font-medium">{{ Carbon::parse($date)->format('l') }}, <br /> {{ $date }}</h1>
-        <p class="text-sm w-full">{{ $description }}</p>
+        <p class="text-xs w-full">See Your Study Schedule at {{ $date }}</p>
     </div>
 
     <div class="w-full h-8 relative bg-lightAccent rounded-full text-white font-bold text-md flex flex-row justify-center items-center shadow-lg">
         <x-uiw-right-circle class="ball h-8 w-8 absolute left-0 cursor-grabbing" />
-        <p class="text-center text-gray-200/80 text-xs" id="sliderMessage">Slide to open >>></p>
+        <p class="text-center text-gray-200/80 text-[0.7rem]" id="sliderMessage">Slide to see your study schedule >></p>
     </div>
 </div>
+
+<form id="delete-study-day-form-{{ $id }}" action="{{ route('dashboard.delete-study-day', $id) }}" method="post">
+    @csrf
+    @method('DELETE')
+    
+</form>

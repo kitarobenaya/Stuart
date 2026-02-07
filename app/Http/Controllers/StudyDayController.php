@@ -32,12 +32,10 @@ class StudyDayController extends Controller
     {
         $request->validate([
             'date' => ['required', 'date'],
-            'description' => 'required'
         ]);
 
         StudyDay::create([
             'date' => $request->date,
-            'description' => $request->description
         ]);
 
         return redirect("/");
@@ -64,9 +62,12 @@ class StudyDayController extends Controller
      */
     public function update(Request $request, StudyDay $studyDay)
     {
+        $request->validate([
+            'date' => ['required', 'date'],
+        ]);
+
         $studyDay->update([
             'date' => $request->date,
-            'description' => $request->description
         ]);
 
         return redirect("/");

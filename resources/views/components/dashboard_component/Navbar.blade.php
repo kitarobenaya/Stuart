@@ -1,12 +1,22 @@
-<nav class="navbar bg-white w-[80%] h-20 rounded-full shadow-2xl flex flex-row justify-evenly items-center fixed bottom-10 z-100 overflow-hidden">
-    <a href="{{ route('dashboard.index') }}" class="p-3 @if(request()->routeIs('dashboard.index')) bg-lightAccent rounded-full text-white @else text-black @endif">
-        <x-heroicon-s-home class="w-7 h-7" />
-    </a>
-    <a href="{{ route('dashboard.form-study-day') }}" class="p-3 @if(request()->routeIs('dashboard.form-study-day')) bg-lightAccent rounded-full text-white @else text-black @endif">
-        <x-heroicon-s-squares-plus class="w-7 h-7" />
-    </a>
+<nav class="navbar w-[80%] h-20 flex flex-col items-center fixed bottom-10 z-100">
+    @if (request()->routeIs('dashboard.form_edit-study-day'))
+        <div class="sub-nav absolute w-[70%] h-fit py-3 flex flex-row justify-center items-center bg-white shadow-xl rounded-t-full -z-1 border border-lightBorder">
+            <a href="{{ route('dashboard.form_edit-study-day', $scheduleId) }}" class="p-2 @if(request()->routeIs('dashboard.form_edit-study-day')) bg-lightAccent rounded-full text-white @else text-black @endif">
+                <x-heroicon-s-pencil-square class="w-5 h-5" /> 
+            </a>
+        </div>
+    @endif
 
-    <div class="toggle-theme bg-black p-3 flex justify-center items-center rounded-full z-50">
-        <x-heroicon-s-moon class="w-7 h-7 cursor-pointer text-lightBackground" />
+    <div class="size-full bg-white z-1 shadow-2xl flex flex-row justify-center items-center gap-x-4 rounded-full border-2 border-lightBorder" id="navbar-wrapper">
+        <a href="{{ route('dashboard.index') }}" class="p-3 @if(request()->routeIs('dashboard.index')) bg-lightAccent rounded-full text-white @else text-black @endif">
+            <x-heroicon-s-home class="w-7 h-7" />
+        </a>
+        <a href="{{ route('dashboard.form-study-day') }}" class="p-3 @if(request()->routeIs('dashboard.form-study-day')) bg-lightAccent rounded-full text-white @else text-black @endif">
+            <x-heroicon-s-squares-plus class="w-7 h-7" />
+        </a>
+
+        <div class="toggle-theme bg-black p-3 flex justify-center items-center rounded-full z-50">
+            <x-heroicon-s-moon class="w-7 h-7 cursor-pointer text-lightBackground" />
+        </div>
     </div>
 </nav>

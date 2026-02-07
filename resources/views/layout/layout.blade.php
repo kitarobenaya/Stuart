@@ -12,7 +12,10 @@
 
     @yield('header')
 
-    <main class="w-full min-h-screen pt-12 pb-22 flex flex-col items-center">
+    <main class="w-full min-h-screen pt-12 flex flex-col items-center 
+    @if (request()->routeIs('dashboard.index'))
+        pb-22
+    @endif">
         @yield('content')
     </main>
 </body>
