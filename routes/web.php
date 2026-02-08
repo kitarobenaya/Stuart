@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudyDayController;
+use App\Http\Controllers\StudyListController;
 use App\Models\StudyDay;
 
 // Study Day Route
@@ -29,3 +30,10 @@ Route::patch('update-study-day/{studyDay}', [StudyDayController::class, 'update'
 // delete the study day or schedule
 Route::delete('/delete-study-day/{studyDay}', [StudyDayController::class, 'destroy'])
 ->name('dashboard.delete-study-day');
+
+
+// Task route
+
+// show task list
+Route::get('/study-list/{studyDay}', [StudyListController::class, 'show'])
+->name('dashboard.study-list'); 

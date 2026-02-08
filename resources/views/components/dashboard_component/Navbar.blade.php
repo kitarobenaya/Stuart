@@ -1,8 +1,28 @@
 <nav class="navbar w-[80%] h-20 flex flex-col items-center fixed bottom-10 z-100">
     @if (request()->routeIs('dashboard.form_edit-study-day'))
         <div class="sub-nav absolute w-[70%] h-fit py-3 flex flex-row justify-center items-center bg-white shadow-xl rounded-t-full -z-1 border border-lightBorder">
-            <a href="{{ route('dashboard.form_edit-study-day', $scheduleId) }}" class="p-2 @if(request()->routeIs('dashboard.form_edit-study-day')) bg-lightAccent rounded-full text-white @else text-black @endif">
+            <a href="{{ route('dashboard.form_edit-study-day', $scheduleId) }}" 
+            class="p-2 
+            @if(request()->routeIs('dashboard.form_edit-study-day')) 
+                bg-lightAccent rounded-full text-white  
+            @else 
+                text-black 
+            @endif">
                 <x-heroicon-s-pencil-square class="w-5 h-5" /> 
+            </a>
+        </div>
+    @endif
+
+    @if (request()->routeIs('dashboard.study-list'))
+        <div class="sub-nav absolute w-[70%] h-fit py-3 flex flex-row justify-center items-center bg-white shadow-xl rounded-t-full -z-1 border border-lightBorder">
+            <a href="{{ route('dashboard.study-list', $scheduleId) }}" 
+            class="p-2 
+            @if(request()->routeIs('dashboard.study-list')) 
+                bg-lightAccent rounded-full text-white  
+            @else 
+                text-black 
+            @endif"> 
+                <x-heroicon-s-clipboard-document-list class="w-5 h-5" />
             </a>
         </div>
     @endif

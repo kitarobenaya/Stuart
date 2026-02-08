@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::create('study_lists', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('study_days_id')->nullable();
-            $table->foreign('study_days_id')->references('id')->on('study_days');
+            $table->char('study_days_id', 100);
+            $table->foreign('study_days_id')->references('study_days_id')->on('study_days')->onDelete('cascade');
             $table->string("title", 255);
             $table->text("description");
             $table->boolean("status");
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tasks');
+        Schema::dropIfExists('study_lists');
     }
 };

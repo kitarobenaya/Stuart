@@ -6,7 +6,7 @@
 @endsection
 
 @section('header')
-    <x-dashboard_component.Header title="Stuart." />
+    <x-dashboard_component.Header title="Stuart." h1="Stuart (Study Smart) |  Dashboard" />
 @endsection
 
 @section('content')

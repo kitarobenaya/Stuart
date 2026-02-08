@@ -15,7 +15,13 @@
     <main class="w-full min-h-screen pt-12 flex flex-col items-center 
     @if (request()->routeIs('dashboard.index'))
         pb-22
-    @endif">
+    @endif
+    
+    @if (request()->routeIs('dashboard.study-list'))
+        pb-34
+    @endif
+    
+    ">
         @yield('content')
     </main>
 </body>

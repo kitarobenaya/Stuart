@@ -37,13 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function onUnlock(ball) {
-        ball.classList.add("unlocked");
-        ball.parentElement.classList.add("done");
 
         // optional: snap ke ujung biar visually clean
         ball.style.transform = `translateX(${sliderRect.width - ballWidth}px)`;
-
-        window.location.href = "/add-schedule";
+        window.location.href = `/study-list/${ball.nextElementSibling.value}`;
     }
 
     function handlePointerMove(e) {

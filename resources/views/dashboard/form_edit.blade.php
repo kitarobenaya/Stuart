@@ -6,7 +6,7 @@
 @endsection
 
 @section('header')
-    <x-dashboard_component.Header title="Stuart." />
+    <x-dashboard_component.Header title="Stuart." h1="Stuart (Study Smart) |  Edit Study Day Form" />
 @endsection
 
 @section('content')
@@ -14,15 +14,15 @@
         @csrf
         @method('PATCH')
 
-        <h1 class="text-[1.5rem] font-semibold">Edit Your Schedule</h1>
+        <h1 class="text-[1.5rem] font-semibold text-black">Edit Your Schedule</h1>
 
         <div class="input-wrapper w-full flex flex-col rounded-2xl p-4">
-            <label for="date" class="text-lg font-semibold">Date</label>
-            <input type="date" name="date" id="date" class="bg-lightPrimary p-1 w-full text-base placeholder:text-gray-400 focus:outline-lightAccent focus:outline-2 rounded-lg" value="{{ $studyDay->date }}">
+            <label for="date" class="text-lg font-semibold text-black">Date</label>
+            <input type="date" name="date" id="date" class="bg-lightPrimary p-1 w-full text-base placeholder:text-gray-400 focus:outline-lightAccent focus:outline-2 rounded-lg text-black" value="{{ $studyDay->date }}">
         </div>
         <x-dashboard_component.form.error name="date" />
 
-        <button type="submit" class="bg-lightPrimary w-[40%] h-8 rounded-xl font-semibold outline-2 outline-lightBorder cursor-pointer">Update</button>
+        <button type="submit" class="bg-lightPrimary w-[40%] h-8 rounded-xl font-semibold outline-2 outline-lightBorder cursor-pointer text-black">Update</button>
     </form>
     <script>
         const date = document.getElementById("date");
