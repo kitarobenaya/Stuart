@@ -1,4 +1,4 @@
-<nav class="navbar w-[80%] h-20 flex flex-col items-center fixed bottom-10 z-100">
+<nav class="navbar w-[80%] h-24 flex flex-col items-center fixed bottom-10 z-100">
     @if (request()->routeIs('dashboard.form_edit-study-day'))
         <div class="sub-nav absolute w-[70%] h-fit py-3 flex flex-row justify-center items-center bg-white shadow-xl rounded-t-full -z-1 border border-lightBorder">
             <a href="{{ route('dashboard.form_edit-study-day', $scheduleId) }}" 
@@ -24,6 +24,8 @@
             @endif"> 
                 <x-heroicon-s-clipboard-document-list class="w-5 h-5" />
             </a>
+
+
         </div>
     @endif
 

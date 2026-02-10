@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function checkUnlock(x) {
         const current = state.find((b) => b.element === activeBall);
-        if (!current || current.isUnlocked) return;
+        if (!current || current.isUnlocked) return; 
 
         const ballRight = x + ballWidth;
 

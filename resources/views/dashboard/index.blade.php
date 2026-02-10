@@ -1,4 +1,5 @@
 @extends('layout.layout')
+@section('schedules')
 @section('title', 'Stuart | Dashboard')
 
 @section('navbar')
@@ -16,7 +17,7 @@
                 <x-dashboard_component.CardParent id="{{ $schedule->id }}" date="{{ $schedule->date }}"/>
             @endforeach
         @else
-            <p class="mt-30">You dont have any schedule yet. <a href="{{ route('dashboard.form-study-day') }}" class="underline">Create One.</a></p>
+            <p class="mt-30 text-lightTextMain">You dont have any schedule yet. <a href="{{ route('dashboard.form-study-day') }}" class="underline">Create One.</a></p>
         @endif
     </div>
 @endsection

@@ -12,7 +12,7 @@ class StudyDayController extends Controller
      */
     public function index()
     {
-        $allSchedules = StudyDay::all();
+        $allSchedules = StudyDay::all() ?? [];
         
         return view('dashboard.index', compact('allSchedules'));
     }
