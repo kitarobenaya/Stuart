@@ -33,7 +33,7 @@ use Carbon\Carbon;
 
     <div class="w-full h-8 relative bg-lightAccent rounded-full text-white font-bold text-md flex flex-row justify-center items-center shadow-lg">
         <x-uiw-right-circle class="ball h-8 w-8 absolute left-0 cursor-grabbing" />
-        <input type="text" name="study_day_id" value="{{ $id }}" id="study_day_id" hidden>
+        <input type="text" name="study_day_id" value="{{ $studyDayId }}" id="study_day_id" hidden>
         <p class="text-center text-gray-200/80 text-[0.7rem]" id="sliderMessage">Slide to see your study schedule >></p>
     </div>
 </div>

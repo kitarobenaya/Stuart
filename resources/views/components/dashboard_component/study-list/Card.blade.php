@@ -1,8 +1,4 @@
-<?php 
-use Carbon\Carbon;
-?>
-
-<div class="relative w-[80%] bg-white h-auto rounded-lg shadow-lg p-5 gap-y-2 flex flex-col border border-lightBorder mx-auto">
+<div class="relative w-[80%] bg-white h-auto rounded-lg shadow-lg p-5 gap-y-2 flex flex-col border-2 border-lightAccent mx-auto">
 
     <div class="size-fit absolute right-1 top-1 cursor-pointer z-2 flex" type="button">
         <x-uiw-setting class="w-4 h-4 z-1 text-black" />
@@ -21,7 +17,7 @@ use Carbon\Carbon;
                 <x-heroicon-s-pencil-square class="w-8 h-8 bg-white rounded-full p-1 cursor-pointer text-black" /> 
             </a>
 
-            <button type="submit" form="delete-tasks-form">
+            <button type="submit" form="delete-tasks-form-{{ $id }}">
                 <x-heroicon-s-trash class="w-8 h-8 text-red-500 bg-white rounded-full p-1 cursor-pointer" />
             </button>
         </div>
@@ -32,15 +28,15 @@ use Carbon\Carbon;
 
     </div>
 
-    <div class="w-full h-auto flex flex-col justify-center items-center p-4 rounded-lg border-2 border-lightBorder bg-white">
-        <h1 class="text-lightTextSecondary w-full text-2xl font-medium">Belajar Unity</h1>
-        <p class="text-xs w-full text-lightTextSecondary">belajar unity buat persiapan PT SOLU nanti</p>
+    <div class="w-full h-auto flex flex-col justify-center items-center p-4 rounded-lg border-2 border-lightAccent bg-white">
+        <h1 class="text-lightTextSecondary w-full text-2xl font-medium">{{ $title }}</h1>
+        <p class="text-xs w-full text-lightTextSecondary">{{ $description }}</p>
     </div>
 
 </div>
 
-{{-- <form id="delete-tasks-form-{{ $id }}" action="{{ route('dashboard.delete-study-day', $id) }}" method="post">
+<form id="delete-tasks-form-{{ $id }}" action="{{ route('dashboard.delete-study-list', $id) }}" method="post">
     @csrf
     @method('DELETE')
     
-</form> --}}
+</form>

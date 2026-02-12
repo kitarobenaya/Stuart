@@ -12,9 +12,11 @@ class StudyDayController extends Controller
      */
     public function index()
     {
-        $allSchedules = StudyDay::all() ?? [];
+        $all_schedules = StudyDay::all() ?? [];
+
+        view('layout.layout', compact('all_schedules'));
         
-        return view('dashboard.index', compact('allSchedules'));
+        return view('dashboard.index', compact('all_schedules'));
     }
 
     /**
@@ -22,7 +24,7 @@ class StudyDayController extends Controller
      */
     public function create()
     {
-        return view('dashboard.form');
+        return view('dashboard.study-day.form');
     }
 
     /**
@@ -54,7 +56,7 @@ class StudyDayController extends Controller
      */
     public function edit(StudyDay $studyDay)
     {
-        return view('dashboard.form_edit', compact('studyDay'));
+        return view('dashboard.study-day.form_edit', compact('studyDay'));
     }
 
     /**

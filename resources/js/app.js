@@ -36,7 +36,7 @@ import "./bootstrap";
             const scrollHeight =
                 document.documentElement.scrollHeight;
 
-            if (scrollTop + clientHeight >= scrollHeight - 70) {
+            if (scrollTop + clientHeight >= scrollHeight - 65) {
                 navbar.classList.remove('fixed');
                 navbar.classList.remove('bottom-10');
                 navbar.classList.remove('w-[80%]');
@@ -45,7 +45,7 @@ import "./bootstrap";
                 navbar.classList.add('w-full');
             }
 
-            if (scrollTop + clientHeight < scrollHeight - 70) {
+            if (scrollTop + clientHeight < scrollHeight - 65) {
                 navbar.classList.remove('absolute');
                 navbar.classList.remove('bottom-0');
                 navbar.classList.remove('w-full');

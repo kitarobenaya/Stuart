@@ -7,33 +7,45 @@ use App\Models\StudyDay;
 
 // Study Day Route
 
-// show the dashboard thing
+// show the dashboard thing (index)
 Route::get('/', [StudyDayController::class, 'index'])
 ->name('dashboard.index');
 
-// show add schedule form
+// show add study day form (create)
 Route::get('/add-study-day', [StudyDayController::class, 'create'])
 ->name('dashboard.form-study-day');
 
-// add new study day or schedule
+// add new study day (store)
 Route::post('/add-study-day', [StudyDayController::class, 'store'])
 ->name('dashboard.store-study-day');
 
-// show edit form
+// show edit study day form (edit)
 Route::get('/edit-study-day/{studyDay}', [StudyDayController::class, 'edit'])
 ->name('dashboard.form_edit-study-day');
 
-// update the study day or schedule
+// update the study day (update)
 Route::patch('update-study-day/{studyDay}', [StudyDayController::class, 'update'])
 ->name('dashboard.update-study-day');
 
-// delete the study day or schedule
+// delete the study day (destroy)
 Route::delete('/delete-study-day/{studyDay}', [StudyDayController::class, 'destroy'])
 ->name('dashboard.delete-study-day');
 
 
-// Task route
+// study list route
 
-// show task list
-Route::get('/study-list/{studyDay}', [StudyListController::class, 'show'])
+// show study list (index)
+Route::get('/study-list/{studyDayId}', [StudyListController::class, 'show'])
 ->name('dashboard.study-list'); 
+
+// show add study list form (create)
+Route::get('/study-list/add-study-list/{studyDayId}', [StudyListController::class, 'create'])
+->name('dashboard.form-study-list');
+
+// add new study list (store)
+Route::post('/study-list/add-study-list', [StudyListController::class, 'store'])
+->name('dashboard.store-study-list');
+
+// delete the study list (destroy)
+Route::delete('/study-list/delete-study-list/{studyList}', [StudyListController::class, 'destroy'])
+->name('dashboard.delete-study-list');

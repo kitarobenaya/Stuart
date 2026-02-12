@@ -37,7 +37,7 @@ div.control-menu.grow-shrink-anim.close {
 }
 
 div.sub-nav {
-    bottom: 0rem;
+    bottom: 1rem;
     animation: slideIn 1s ease-in-out forwards;
 }
 

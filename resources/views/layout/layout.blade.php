@@ -13,12 +13,12 @@
     @yield('header')
 
     <main class="w-full min-h-screen pt-12 flex flex-col items-center 
-    @if (request()->routeIs('dashboard.index'))
+    @if (request()->routeIs('dashboard.index') && $all_schedules->count() > 2)
         pb-22
     @endif
     
-    @if (request()->routeIs('dashboard.study-list'))
-        pb-34
+    @if (request()->routeIs('dashboard.study-list') && $study_lists->count() > 3)
+        pb-38
     @endif
     
     ">

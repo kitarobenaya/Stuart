@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class StudyList extends Model
 {
-    //
+    protected $guarded = [];
 }

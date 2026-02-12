@@ -19,9 +19,11 @@ class StudyListController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($studyDayId)
     {
-        //
+        $studyDay = StudyDay::where('study_days_id', $studyDayId)->first();
+
+        return view('dashboard.study-list.form', compact('studyDay'));
     }
 
     /**
@@ -29,17 +31,32 @@ class StudyListController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
+        ]);
+
+        StudyList::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'study_days_id' => $request->study_days_id,
+            'status' => false
+        ]);
+
+        return redirect("/study-list/$request->study_days_id");
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(StudyDay $studyDay)
+    public function show($studyDayId)
     {
-        $study_lists = StudyList::where('study_days_id', $studyDay->id)->get();
+        $study_lists = StudyList::where('study_days_id', $studyDayId)->get() ?? [];
+        $studyDay = StudyDay::where('study_days_id', $studyDayId)->first();
 
-        return view('dashboard.study_list', compact('studyDay', 'study_lists'));
+        view('layout.layout', compact('study_lists'));
+
+        return view('dashboard.study-list.index', compact('studyDay', 'study_lists'));
     }
 
     /**
@@ -63,6 +80,8 @@ class StudyListController extends Controller
      */
     public function destroy(StudyList $studyList)
     {
-        //
+        $studyList->delete();
+        
+        return redirect("/study-list/$studyList->study_days_id");
     }
 }
