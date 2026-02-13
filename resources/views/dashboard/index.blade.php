@@ -20,4 +20,8 @@
             <p class="mt-30 text-lightTextMain">You dont have any schedule yet. <a href="{{ route('dashboard.form-study-day') }}" class="underline">Create One.</a></p>
         @endif
     </div>
+
+    @if(session('success') || session('error'))
+        <x-dashboard_component.Alert type="{{ session('success') ? 'success' : 'error' }}" />
+    @endif
 @endsection

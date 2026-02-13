@@ -1,4 +1,4 @@
-<div class="relative w-[80%] bg-white h-auto rounded-lg shadow-lg p-5 gap-y-2 flex flex-col border-2 border-lightAccent mx-auto">
+<div class="relative w-[95%] bg-white h-auto rounded-lg shadow-lg p-5 gap-y-2 flex flex-col border-2 border-lightAccent mx-auto">
 
     <div class="size-fit absolute right-1 top-1 cursor-pointer z-2 flex" type="button">
         <x-uiw-setting class="w-4 h-4 z-1 text-black" />
@@ -29,8 +29,9 @@
     </div>
 
     <div class="w-full h-auto flex flex-col justify-center items-center p-4 rounded-lg border-2 border-lightAccent bg-white">
-        <h1 class="text-lightTextSecondary w-full text-2xl font-medium">{{ $title }}</h1>
-        <p class="text-xs w-full text-lightTextSecondary">{{ $description }}</p>
+        <h2 class="text-lightTextSecondary w-full text-2xl font-medium">{{ $title }}</h2>
+        <p class="text-xl w-full text-lightTextSecondary">{{ $time1 }} - {{ $time2 }}</p>
+        <p class="text-md w-full text-lightTextSecondary">{{ $description }}</p>
     </div>
 
 </div>

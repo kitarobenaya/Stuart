@@ -40,7 +40,7 @@
         </div>
     @endif
 
-    <div class="size-full bg-white z-1 shadow-2xl flex flex-row justify-center items-center gap-x-4 rounded-full border-2 border-lightBorder" id="navbar-wrapper">
+    <div class="size-full bg-white z-1 shadow-xl flex flex-row justify-center items-center gap-x-4 rounded-full border-2 border-lightBorder" id="navbar-wrapper">
         <a href="{{ route('dashboard.index') }}" class="p-3 @if(request()->routeIs('dashboard.index')) bg-lightAccent rounded-full text-white @else text-black @endif">
             <x-heroicon-s-home class="w-7 h-7" />
         </a>

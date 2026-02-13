@@ -19,11 +19,15 @@
         <div class="input-wrapper w-full flex flex-col rounded-2xl p-4">
             <label for="date" class="text-lg font-semibold text-black">Date</label>
             <input type="date" name="date" id="date" class="bg-lightPrimary p-1 w-full text-base placeholder:text-gray-400 focus:outline-lightAccent focus:outline-2 rounded-lg text-black" value="{{ $studyDay->date }}">
-            <x-dashboard_component.form.error name="date" />
         </div>
 
         <button type="submit" class="bg-lightPrimary w-[40%] h-8 rounded-xl font-semibold outline-2 outline-lightBorder cursor-pointer text-black">Update</button>
     </form>
+
+    @if(session('success') || session('error'))
+        <x-dashboard_component.Alert type="{{ session('success') ? 'success' : 'error' }}" />
+    @endif
+
     <script>
         const date = document.getElementById("date");
         date.focus();

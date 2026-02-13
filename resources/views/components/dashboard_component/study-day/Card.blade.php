@@ -27,13 +27,13 @@ use Carbon\Carbon;
     </div>
 
     <div class="w-full h-auto flex flex-col justify-center items-center p-4 rounded-lg border-2 border-lightBorder bg-white">
-        <h1 class="text-lightTextSecondary w-full text-2xl font-medium">{{ Carbon::parse($date)->format('l') }}, <br /> {{ $date }}</h1>
+        <h2 class="text-lightTextSecondary w-full text-2xl font-medium">{{ Carbon::parse($date)->format('l') }}, <br /> {{ $date }}</h2>
         <p class="text-xs w-full text-lightTextSecondary">See Your Study Schedule at {{ $date }}</p>
     </div>
 
     <div class="w-full h-8 relative bg-lightAccent rounded-full text-white font-bold text-md flex flex-row justify-center items-center shadow-lg">
         <x-uiw-right-circle class="ball h-8 w-8 absolute left-0 cursor-grabbing" />
-        <input type="text" name="study_day_id" value="{{ $studyDayId }}" id="study_day_id" hidden>
+        <input type="text" name="study_day_id" value="{{ $studyDayId }}" id="{{ $studyDayId }}" hidden>
         <p class="text-center text-gray-200/80 text-[0.7rem]" id="sliderMessage">Slide to see your study schedule >></p>
     </div>
 </div>
