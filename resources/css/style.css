@@ -38,11 +38,34 @@ div.control-menu.grow-shrink-anim.close {
 
 div.sub-nav {
     bottom: 1rem;
-    animation: slideIn 1s ease-in-out forwards;
+    animation: slideUp 1s ease-in-out forwards;
 }
 
-@keyframes slideIn {
+@keyframes slideUp {
     to {
         bottom: 4.5rem;
+    }
+}
+
+div.daisyUI-alert {
+    position: fixed;
+    animation: slideLeft 5s ease-in-out forwards;
+    top: 0.5rem;
+}
+
+@keyframes slideLeft {
+    0% {
+        right: -100%;
+    }
+    30% {
+        right: 0.5rem;
+    }
+    80% {
+        opacity: 1;
+        right: 0.5rem;
+    }
+    100% {
+        opacity: 0;
+        right: 0.5rem;
     }
 }

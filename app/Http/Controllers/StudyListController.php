@@ -31,19 +31,30 @@ class StudyListController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string'],
-        ]);
+        try {
+            $request->validate([
+                'title' => ['required', 'string', 'max:255'],
+                'time1' => ['required', 'date_format:H:i'],
+                'time2' => ['required', 'date_format:H:i'],
+            ]);
 
-        StudyList::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'study_days_id' => $request->study_days_id,
-            'status' => false
-        ]);
+            StudyList::create([
+                'title' => $request->title,
+                'study_days_id' => $request->study_days_id,
+                'description' => $request->description ?? "No description.",
+                'start_time' => $request->time1,
+                'end_time' => $request->time2,
+                'status' => false
+            ]);
 
-        return redirect("/study-list/$request->study_days_id");
+            return redirect("/study-list/$request->study_days_id")
+                ->with('success', 'Study List created successfully.');
+        }
+        catch (\Throwable $th) {
+            return redirect()
+                ->back()
+                ->with('error', $th->getMessage());
+        }
     }
 
     /**
@@ -80,8 +91,16 @@ class StudyListController extends Controller
      */
     public function destroy(StudyList $studyList)
     {
-        $studyList->delete();
+        try {
+            $studyList->delete();
         
-        return redirect("/study-list/$studyList->study_days_id");
+            return redirect("/study-list/$studyList->study_days_id")
+                ->with('success', 'Study List deleted successfully.');
+        }
+        catch (\Throwable $th) {
+            return redirect()
+                ->back()
+                ->with('error', $th->getMessage());
+        }
     }
 }

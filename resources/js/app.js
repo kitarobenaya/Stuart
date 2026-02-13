@@ -36,7 +36,9 @@ import "./bootstrap";
             const scrollHeight =
                 document.documentElement.scrollHeight;
 
-            if (scrollTop + clientHeight >= scrollHeight - 65) {
+            const offset = cekDevice() === 'Mobile' ? 65 : 1;
+
+            if (scrollTop + clientHeight >= scrollHeight - offset) {
                 navbar.classList.remove('fixed');
                 navbar.classList.remove('bottom-10');
                 navbar.classList.remove('w-[80%]');
@@ -45,7 +47,7 @@ import "./bootstrap";
                 navbar.classList.add('w-full');
             }
 
-            if (scrollTop + clientHeight < scrollHeight - 65) {
+            if (scrollTop + clientHeight < scrollHeight - offset) {
                 navbar.classList.remove('absolute');
                 navbar.classList.remove('bottom-0');
                 navbar.classList.remove('w-full');
@@ -54,4 +56,17 @@ import "./bootstrap";
                 navbar.classList.add('w-[80%]');
             }
         });
+
+        function cekDevice() {
+            const userAgent = navigator.userAgent;
+            let device; 
+
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent)) {
+                device =  "Mobile";
+            } else {
+                device = "Desktop";
+            }
+
+            return device;
+        }
     })

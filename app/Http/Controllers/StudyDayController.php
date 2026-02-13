@@ -32,15 +32,23 @@ class StudyDayController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'date' => ['required', 'date'],
-        ]);
+       try {
+            $request->validate([
+                'date' => ['required', 'date'],
+            ]);
 
-        StudyDay::create([
-            'date' => $request->date,
-        ]);
+            StudyDay::create([
+                'date' => $request->date,
+            ]);
 
-        return redirect("/");
+            return redirect("/")
+                ->with('success', 'Schedule created successfully.');
+       }
+       catch (\Throwable $th) {
+           return redirect()
+                ->back()
+                ->with('error', $th->getMessage());
+       }
     }
 
     /**
@@ -64,15 +72,23 @@ class StudyDayController extends Controller
      */
     public function update(Request $request, StudyDay $studyDay)
     {
-        $request->validate([
-            'date' => ['required', 'date'],
-        ]);
+        try {
+            $request->validate([
+                'date' => ['required', 'date'],
+            ]);
 
-        $studyDay->update([
-            'date' => $request->date,
-        ]);
+            $studyDay->update([
+                'date' => $request->date,
+            ]);
 
-        return redirect("/");
+            return redirect("/")
+                ->with('success', 'Schedule updated successfully.');
+        }
+        catch (\Throwable $th) {
+            return redirect()
+                ->back()
+                ->with('error', $th->getMessage());
+        }
     }
 
     /**
@@ -80,8 +96,16 @@ class StudyDayController extends Controller
      */
     public function destroy(StudyDay $studyDay)
     {
-        $studyDay->delete();
+        try{
+            $studyDay->delete();
         
-        return redirect("/");
+            return redirect("/")
+                ->with('success', 'Schedule deleted successfully.');
+        }
+        catch (\Throwable $th) {
+            return redirect()
+                ->back()
+                ->with('error', $th->getMessage());
+        }
     }
 }
