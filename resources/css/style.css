@@ -47,6 +47,17 @@ div.sub-nav {
     }
 }
 
+div.sub-nav-2 {
+    bottom: 1rem;
+    animation: slideUp2 1.5s ease-in-out forwards;
+}
+
+@keyframes slideUp2 {
+    to {
+        bottom: 8rem;
+    }
+}
+
 div.daisyUI-alert {
     position: fixed;
     animation: slideLeft 5s ease-in-out forwards;

@@ -1,5 +1,6 @@
 <?php 
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 ?>
 
 @extends('layout.layout')
@@ -14,26 +15,33 @@ use Carbon\Carbon;
 @endsection
 
 @section('content')
-        <form action="{{ route('dashboard.store-study-list') }}" method="post" class="w-[80%] flex flex-col items-center rounded-3xl p-4 bg-white outline-2 outline-lightBorder shadow-xl">
+        <form action="{{ route('dashboard.update-study-list', $studyDay->study_days_id) }}" method="post" class="w-[80%] flex flex-col items-center rounded-3xl p-4 bg-white outline-2 outline-lightBorder shadow-xl">
             @csrf
+            @method('PATCH')
 
             <h1 class="text-2xl font-semibold text-lightTextMain text-center">Add New Study List at {{ Carbon::parse($studyDay->date)->format(('l')) }}, {{ $studyDay->date }}</h1>
 
             <div class="input-wrapper w-full flex flex-col rounded-2xl p-4">
                 <label for="title" class="text-lg font-semibold text-black">Title</label>
-                <input type="text" name="title" id="title" maxlength="255" class="bg-lightPrimary p-1 w-full text-base placeholder:text-gray-400 focus:outline-lightAccent focus:outline-2 rounded-lg text-black">
+                <input type="text" name="title" id="title" maxlength="255" class="bg-lightPrimary p-1 w-full text-base placeholder:text-gray-400 focus:outline-lightAccent focus:outline-2 rounded-lg text-black"
+                    value="{{ $studyList->title }}"
+                >
             </div>
 
             <div class="input-wrapper w-full flex flex-col rounded-2xl p-4">
                 <label for="description" class="text-lg font-semibold text-black">Description</label>
-                <input type="text" name="description" id="description" class="bg-lightPrimary p-1 w-full text-base placeholder:text-gray-400 focus:outline-lightAccent focus:outline-2 rounded-lg text-black">
+                <input type="text" name="description" id="description" class="bg-lightPrimary p-1 w-full text-base placeholder:text-gray-400 focus:outline-lightAccent focus:outline-2 rounded-lg text-black"
+                    value="{{ $studyList->description }}"
+                >
             </div>
 
             <div class="two-row-input flex flex-row justify-center items-center h-fit w-full">
 
                 <div class="input-wrapper w-full flex flex-col rounded-2xl p-4">
                     <label for="start_time" class="text-lg font-semibold text-black">Time</label>
-                    <input type="time" name="start_time" id="start_time" class="bg-lightPrimary p-1 w-full text-base placeholder:text-gray-400 focus:outline-lightAccent focus:outline-2 rounded-lg text-black">
+                    <input type="time" name="start_time" id="start_time" class="bg-lightPrimary p-1 w-full text-base placeholder:text-gray-400 focus:outline-lightAccent focus:outline-2 rounded-lg text-black"
+                        value="{{ Str::substr($studyList->start_time, 0, 5) }}"
+                    >
                 </div>
 
                 <div class="flex flex-col">
@@ -43,7 +51,9 @@ use Carbon\Carbon;
 
                 <div class="input-wrapper w-full flex flex-col rounded-2xl p-4">
                     <label for="end_time" class="text-lg font-semibold">Time 2</label>
-                    <input type="time" name="end_time" id="end_time" class="bg-lightPrimary p-1 w-full text-base placeholder:text-gray-400 focus:outline-lightAccent focus:outline-2 rounded-lg text-black">
+                    <input type="time" name="end_time" id="end_time" class="bg-lightPrimary p-1 w-full text-base placeholder:text-gray-400 focus:outline-lightAccent focus:outline-2 rounded-lg text-black"
+                        value="{{ Str::substr($studyList->end_time, 0, 5) }}"
+                    >
                 </div>
 
             </div>

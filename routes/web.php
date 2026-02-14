@@ -46,6 +46,14 @@ Route::get('/study-list/add-study-list/{studyDayId}', [StudyListController::clas
 Route::post('/study-list/add-study-list', [StudyListController::class, 'store'])
 ->name('dashboard.store-study-list');
 
+// show edit study list form (edit)
+Route::get('/study-list/edit-study-list/{studyDayId}', [StudyListController::class, 'edit'])
+->name('dashboard.form_edit-study-list');
+
+// update the study list (update)
+Route::patch('/study-list/update-study-list/{studyDayId}', [StudyListController::class, 'update'])
+->name('dashboard.update-study-list');
+
 // delete the study list (destroy)
 Route::delete('/study-list/delete-study-list/{studyList}', [StudyListController::class, 'destroy'])
 ->name('dashboard.delete-study-list');

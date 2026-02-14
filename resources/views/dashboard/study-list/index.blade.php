@@ -21,6 +21,7 @@ use Illuminate\Support\Str;
             @foreach ($study_lists as $study_list)
                 <x-dashboard_component.study-list.Card 
                 id="{{ $study_list->id }}" 
+                studyDayId="{{ $studyDay->study_days_id }}"
                 title="{{ $study_list->title }}" 
                 description="{{ $study_list->description }}"
                 time1="{{ Str::substr($study_list->start_time, 0, 5) }}"

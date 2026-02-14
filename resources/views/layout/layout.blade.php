@@ -21,6 +21,9 @@
         pb-38
     @endif
     
+    @if (request()->routeIs('dashboard.form_edit-study-list'))
+        pb-60
+    @endif
     ">
         @yield('content')
     </main>

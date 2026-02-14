@@ -13,7 +13,7 @@
         </div>
 
         <div class="w-full flex flex-row justify-center items-center gap-x-2">
-            <a href="">
+            <a href="{{ route('dashboard.form_edit-study-list', $studyDayId) }}">
                 <x-heroicon-s-pencil-square class="w-8 h-8 bg-white rounded-full p-1 cursor-pointer text-black" /> 
             </a>
 

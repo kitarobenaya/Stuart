@@ -13,9 +13,24 @@
         </div>
     @endif
 
+    @if(request()->routeIs('dashboard.form_edit-study-list'))
+        <div class="sub-nav-2 absolute w-[50%] h-fit py-4 flex flex-row justify-center items-center bg-white shadow-xl rounded-t-full -z-1 border border-lightBorder">
+            <a href="{{ route('dashboard.form_edit-study-list', $studyDayId) }}" 
+            class="p-2 
+            @if(request()->routeIs('dashboard.form_edit-study-list')) 
+                bg-lightAccent rounded-full text-white  
+            @else 
+                text-black 
+            @endif">
+                <x-heroicon-s-pencil-square class="w-5 h-5" /> 
+            </a>
+        </div>
+    @endif
+
     @if (
         request()->routeIs('dashboard.study-list') ||
-        request()->routeIs('dashboard.form-study-list')
+        request()->routeIs('dashboard.form-study-list') ||
+        request()->routeIs('dashboard.form_edit-study-list')
     )
         <div class="sub-nav absolute w-[70%] h-fit py-4 flex flex-row justify-center items-center bg-white shadow-xl rounded-t-full -z-1 border border-lightBorder">
             <a href="{{ route('dashboard.study-list', $studyDayId) }}" 

@@ -34,16 +34,18 @@ class StudyListController extends Controller
         try {
             $request->validate([
                 'title' => ['required', 'string', 'max:255'],
-                'time1' => ['required', 'date_format:H:i'],
-                'time2' => ['required', 'date_format:H:i'],
+                'study_days_id' => ['required', 'exists:study_days,study_days_id'],
+                'description' => ['string'],
+                'start_time' => ['required', 'date_format:H:i'],
+                'end_time' => ['required', 'date_format:H:i'],
             ]);
 
             StudyList::create([
                 'title' => $request->title,
                 'study_days_id' => $request->study_days_id,
                 'description' => $request->description ?? "No description.",
-                'start_time' => $request->time1,
-                'end_time' => $request->time2,
+                'start_time' => $request->start_time,
+                'end_time' => $request->end_time,
                 'status' => false
             ]);
 
@@ -73,17 +75,46 @@ class StudyListController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(StudyList $studyList)
+    public function edit($studyDayId)
     {
-        //
+        $studyDay = StudyDay::where('study_days_id', $studyDayId)->first();
+        $studyList = StudyList::where('study_days_id', $studyDayId)->first();
+
+        return view('dashboard.study-list.form_edit', compact('studyDay', 'studyList'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, StudyList $studyList)
+    public function update(Request $request, $studyDayid)
     {
-        //
+        try {
+            $studyList = StudyList::where('study_days_id', $studyDayid)->first();
+
+            $request->validate([
+                'title' => ['required', 'string', 'max:255'],
+                'study_days_id' => ['required', 'exists:study_days,study_days_id'],
+                'description' => ['string'],
+                'start_time' => ['required', 'date_format:H:i'],
+                'end_time' => ['required', 'date_format:H:i'],
+            ]);
+
+            $studyList->update([
+                'title' => $request->title,
+                'study_days_id' => $request->study_days_id,
+                'description' => $request->description ?? "No description.",
+                'start_time' => $request->start_time,
+                'end_time' => $request->end_time,
+            ]);
+
+            return redirect("/study-list/$studyList->study_days_id")
+                ->with('success', 'Study List updated successfully.');
+        }
+        catch (\Throwable $th) {
+            return redirect()
+                ->back()
+                ->with('error', $th->getMessage());
+        }
     }
 
     /**
