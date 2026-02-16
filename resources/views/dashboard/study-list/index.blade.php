@@ -20,7 +20,6 @@ use Illuminate\Support\Str;
         @if($study_lists->count())
             @foreach ($study_lists as $study_list)
                 <x-dashboard_component.study-list.Card 
-                id="{{ $study_list->id }}" 
                 studyDayId="{{ $studyDay->study_days_id }}"
                 title="{{ $study_list->title }}" 
                 description="{{ $study_list->description }}"

@@ -86,10 +86,10 @@ class StudyListController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $studyDayid)
+    public function update(Request $request, $studyDayId)
     {
         try {
-            $studyList = StudyList::where('study_days_id', $studyDayid)->first();
+            $studyList = StudyList::where('study_days_id', $studyDayId)->first();
 
             $request->validate([
                 'title' => ['required', 'string', 'max:255'],
@@ -120,12 +120,14 @@ class StudyListController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(StudyList $studyList)
+    public function destroy($studyDayId)
     {
         try {
+            $studyList = StudyList::where('study_days_id', $studyDayId)->first();
+
             $studyList->delete();
         
-            return redirect("/study-list/$studyList->study_days_id")
+            return redirect("/study-list/$studyDayId")
                 ->with('success', 'Study List deleted successfully.');
         }
         catch (\Throwable $th) {

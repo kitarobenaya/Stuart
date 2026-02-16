@@ -17,7 +17,7 @@
                 <x-heroicon-s-pencil-square class="w-8 h-8 bg-white rounded-full p-1 cursor-pointer text-black" /> 
             </a>
 
-            <button type="submit" form="delete-tasks-form-{{ $id }}">
+            <button type="submit" form="delete-tasks-form-{{ $studyDayId }}">
                 <x-heroicon-s-trash class="w-8 h-8 text-red-500 bg-white rounded-full p-1 cursor-pointer" />
             </button>
         </div>
@@ -36,7 +36,7 @@
 
 </div>
 
-<form id="delete-tasks-form-{{ $id }}" action="{{ route('dashboard.delete-study-list', $id) }}" method="post">
+<form id="delete-tasks-form-{{ $studyDayId }}" action="{{ route('dashboard.delete-study-list', $studyDayId) }}" method="post">
     @csrf
     @method('DELETE')
     
