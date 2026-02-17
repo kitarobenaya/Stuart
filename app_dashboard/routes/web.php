@@ -31,7 +31,7 @@ Route::delete('/study-day/delete-study-day/{studyDay}', [StudyDayController::cla
 ->name('dashboard.delete-study-day');
 
 
-// study list route
+// Study List route
 
 // show study list (index)
 Route::get('/study-list/{studyDayId}', [StudyListController::class, 'show'])

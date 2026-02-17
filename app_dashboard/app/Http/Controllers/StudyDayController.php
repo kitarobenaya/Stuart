@@ -16,7 +16,7 @@ class StudyDayController extends Controller
 
         view('layout.layout', compact('all_schedules'));
         
-        return view('dashboard.index', compact('all_schedules'));
+        return view('dashboard.study-day.index', compact('all_schedules'));
     }
 
     /**
